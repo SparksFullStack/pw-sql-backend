@@ -26,6 +26,12 @@ connection.connect((err) => {
 
 // * Routes
 server.get('/', (req, res) => res.send(`The server is live!`));
+server.get('/test', (req, res) => {
+    connection.query('SELECT * FROM data', (error, results, fields) => {
+        if (error) console.log(error);
+        else res.json(results);
+    })
+})
 
 // * Starting the Server
 server.listen(port, () => console.log(`The server is listening on port ${port}`));
