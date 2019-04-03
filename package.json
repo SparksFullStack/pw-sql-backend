@@ -1,0 +1,15 @@
+{
+  "name": "pw-sql-backend",
+  "version": "1.0.0",
+  "description": "A backend for the ProSkins website",
+  "main": "server.js",
+  "repository": "https://github.com/SparksFullStack/pw-sql-backend.git",
+  "author": "SparksFullStack <csparks@antioch.edu>",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^7.0.0",
+    "express": "^4.16.4",
+    "mysql": "mysqljs/mysql"
+  }
+}
