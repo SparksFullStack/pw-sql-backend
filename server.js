@@ -26,10 +26,10 @@ connection.connect((err) => {
 
 // * Routes
 server.get('/', (req, res) => res.send(`The server is live!`));
-server.get('/test', (req, res) => {
-    connection.query('SELECT * FROM data', (error, results, fields) => {
-        if (error) console.log(error);
-        else res.json(results);
+server.get('/skins', (req, res) => { // Main route to access all skins
+    connection.query('SELECT * FROM data', (err, results, fields) => {
+        if (err) res.status(404).json({ retrievingSkinsError: "Skins could not be retrieved from the database--please try again" });
+        else res.status(200).json(results);
     })
 })
 
