@@ -33,6 +33,13 @@ server.get('/skins', (req, res) => { // Main route to access all skins
         if (err) res.status(404).json({ retrievingSkinsError: "Skins could not be retrieved from the database--please try again" });
         else res.status(200).json(results);
     })
+});
+
+server.get('/last_updated', (req, res) => {
+    connection.query("SHOW TABLE STATUS FROM `proskins` LIKE 'data'", (err, results, fields) => {
+        if (err) return console.log(err);
+        res.send(results);
+    })
 })
 
 // * Starting the Server
