@@ -1,6 +1,7 @@
 // * Importing Libraries
 const express = require('express');
 const mysql = require('mysql');
+const cors = require('cors');
 require('dotenv').config();
 
 // * Initializing the Server
@@ -9,6 +10,7 @@ const server = express();
 
 // * Adding Middleware
 server.use(express.json());
+server.use(cors());
 
 // * Connecting to the Database
 const { DB_HOST, DB_USERNAME, DB_PASS, DB_NAME } = process.env;
